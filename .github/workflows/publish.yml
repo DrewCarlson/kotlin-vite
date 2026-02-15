@@ -29,5 +29,8 @@ jobs:
             ~/.konan
             ~/.gradle
           key: ${{ runner.os }}-${{ hashFiles('gradle.properties') }}-v1
-      - name: Publish
-        run: ./gradlew clean publish publishPlugins
+      - name: Publish to Maven Central
+        run: ./gradlew clean publish
+      - name: Publish to Plugin Portal
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: ./gradlew clean publishPlugins
