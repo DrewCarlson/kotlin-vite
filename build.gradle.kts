@@ -51,12 +51,20 @@ kotlin {
     }
 }
 
+val testPluginClasspath: Configuration by configurations.creating {
+    extendsFrom(configurations.compileOnly.get())
+}
+
 dependencies {
     compileOnly(gradleKotlinDsl())
     compileOnly(libs.kotlinGradlePlugin)
 
     testImplementation(libs.kotlin.test.junit)
     testImplementation(gradleTestKit())
+}
+
+tasks.pluginUnderTestMetadata {
+    pluginClasspath.from(testPluginClasspath)
 }
 
 System.getenv("GITHUB_REF_NAME")
