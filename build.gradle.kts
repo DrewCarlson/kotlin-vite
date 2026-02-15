@@ -16,7 +16,7 @@ plugins {
 
 mavenPublishing {
     configure(GradlePlugin(
-        JavadocJar.Dokka("dokkaHtml"),
+        JavadocJar.Dokka("dokkaGenerateHtml"),
         SourcesJar.Sources(),
     ))
 }
