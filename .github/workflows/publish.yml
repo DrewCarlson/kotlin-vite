@@ -30,4 +30,4 @@ jobs:
             ~/.gradle
           key: ${{ runner.os }}-${{ hashFiles('gradle.properties') }}-v1
       - name: Publish
-        run: ./gradlew clean publish
+        run: ./gradlew clean publish publishPlugins
