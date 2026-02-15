@@ -63,8 +63,8 @@ Configure the plugin through the `kotlinVite` extension:
 
 ```kotlin
 kotlinVite {
-    // Vite version for the auto-installed npm dependency (default: "7.3.1")
-    viteVersion = "7.3.1"
+    // Vite version for the auto-installed npm dependency (default: "6.4.1")
+    viteVersion = "6.4.1"
 
     // Automatically add Vite as a devNpm dependency (default: true)
     addViteDependency = true
@@ -88,7 +88,7 @@ kotlinVite {
 | Property            | Type                         | Default                     | Description                                                |
 |---------------------|------------------------------|-----------------------------|------------------------------------------------------------|
 | `enabled`           | `Property<Boolean>`          | `true`                      | Master switch — when `false`, no tasks are registered      |
-| `viteVersion`       | `String`                     | `"7.3.1"`                   | Vite npm package version added as a `devNpm` dependency    |
+| `viteVersion`       | `String`                     | `"6.4.1"`                   | Vite npm package version added as a `devNpm` dependency    |
 | `addViteDependency` | `Boolean`                    | `true`                      | Whether to automatically add the Vite npm dependency       |
 | `disableWebpack`    | `Boolean`                    | `true`                      | Disable the redundant webpack, run, and distribution tasks |
 | `configFilePath`    | `RegularFileProperty`        | `projectDir/vite.config.js` | Path to your Vite configuration file                       |

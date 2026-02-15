@@ -18,7 +18,7 @@ public abstract class KotlinViteExtension @Inject constructor(
     /**
      * Vite version to use if auto installed (enabled by default).
      */
-    public var viteVersion: String = "7.3.1"
+    public var viteVersion: String = "6.4.1"
 
     /**
      * Enable or disable automatic Vite dependency handling, enabled by default.
