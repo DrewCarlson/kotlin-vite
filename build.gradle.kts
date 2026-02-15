@@ -1,8 +1,6 @@
 @file:OptIn(ExperimentalAbiValidation::class)
 
-import com.vanniktech.maven.publish.GradlePlugin
-import com.vanniktech.maven.publish.JavadocJar
-import com.vanniktech.maven.publish.SourcesJar
+import com.vanniktech.maven.publish.GradlePublishPlugin
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
@@ -11,23 +9,24 @@ plugins {
     alias(libs.plugins.kotlinJvm)
     `java-gradle-plugin`
     alias(libs.plugins.mavenPublish)
+    alias(libs.plugins.pluginPublish)
     alias(libs.plugins.dokka)
 }
 
 mavenPublishing {
-    configure(GradlePlugin(
-        JavadocJar.Dokka("dokkaGenerateHtml"),
-        SourcesJar.Sources(),
-    ))
+    configure(GradlePublishPlugin())
 }
 
 gradlePlugin {
+    website.set("https://github.com/DrewCarlson/kotlin-vite")
+    vcsUrl.set("https://github.com/DrewCarlson/kotlin-vite.git")
     plugins {
         create("kotlinVite") {
             id = "org.drewcarlson.kotlin-vite"
             implementationClass = "org.drewcarlson.kotlinvite.KotlinVitePlugin"
             displayName = "Kotlin Vite"
             description = "Vite support for Kotlin Multiplatform JS targets."
+            tags.set(listOf("kotlin", "vite", "kotlin-multiplatform", "kotlin-js"))
         }
     }
 }
