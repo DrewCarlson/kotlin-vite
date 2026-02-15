@@ -1,0 +1,15 @@
+[versions]
+kotlin = "2.2.20"
+mavenPublish = "0.36.0"
+
+[libraries]
+kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+
+# Test Dependencies
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+
+[plugins]
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "mavenPublish" }
+dokka = { id = "org.jetbrains.dokka", version = "2.2.0-Beta" }
